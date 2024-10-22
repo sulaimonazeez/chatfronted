@@ -4,6 +4,87 @@
   padding: 1rem;
 }
 
+.mynav h2 {
+  color: white;
+}
+.chat-group {
+  background-color: #000020;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  top: 0;
+  height: 100vh;
+}
+
+.img-profile {
+  width: 50px;
+  height: 50px;
+  border: solid 5px #000031;
+  border-radius: 50vw;
+  
+}
+
+.dp {
+  display: flex;
+  padding: 0.70rem;
+}
+
+.dp div {
+  width: 100%;
+  border-bottom: solid 1px lightblue ;
+}
+
+.dp div small {
+  position: relative;
+  top: -0.40rem;
+}
+
+
+.dp img {
+  margin-right: 1.5rem;
+}
+
+.dps div {
+  width: 100%;
+}
+
+.dps div small {
+  position: relative;
+  top: -0.40rem;
+}
+
+
+.dps img {
+  margin-right: 1.5rem;
+}
+
+
+
+.dps {
+  background-color: #000030;
+  padding: 0.70rem;
+  display: flex;
+  cursor: pointer;
+}
+
+.signout {
+  width: 100%;
+  margin: 1rem;
+  bottom: 0;
+  position: fixed;
+}
+.form-group input {
+  outline: none;
+  border: none;
+}
+
+.form-group input::placeholder {
+  color: white;
+  border: none;
+}
+
+
 .bi {
   color: lightgrey;
   font-size: 24px;
@@ -12,4 +93,157 @@
 .bi-person-plus {
   position: relative;
   left: -1rem;
+}
+
+.bi-box-arrow-right {
+  background-color: #000020;
+  padding: 10px;
+  border-radius: 2px;
+  position: relative;
+  left: 65%;
+  cursor: pointer;
+  top: 10%;
+  
+}
+
+
+.add-user {
+  background-color: #000031;
+  height: 100vh;
+  width: 100%;
+  color: white;
+}
+
+.move--to {
+  background-color: #000020;
+  padding: 5px;
+  color: white;
+}
+
+.move--to p {
+  color: white;
+  font-weight: bold;
+  position: relative;
+  left: 40px;
+  top: 5px;
+}
+
+.looking--user {
+  border: solid 1px white;
+  color: white;
+  background-color: #000020;
+  position: relative;
+  top: 2rem;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.looking--user::placeholder {
+  background-color: #000020;
+  color: grey;
+  border-radius: 2px;
+  border: none;
+}
+
+.bi-facebook, .bi-whatsapp, .bi-instagram {
+  background-color: #000020;
+  width: 30px;
+  border-radius: 5px;
+  
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+}
+
+.chat-header {
+  padding: 10px;
+  background-color: #075E54;
+  color: white;
+  text-align: center;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #EDEDED;
+  position: relative; /* Required to contain floated children */
+}
+
+.message {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+  clear: both; /* Clear floats to ensure messages don't overlap */
+}
+
+.my-message {
+  background-color: #DCF8C6;
+  float: right; /* Float the sender's messages to the right */
+  text-align: left; /* Align text inside the bubble to the right */
+  border-bottom-right-radius: 0; /* Customizes border radius */
+}
+
+.their-message {
+  background-color: #FFF;
+  float: left; /* Float the receiver's messages to the left */
+  text-align: left; /* Align text inside the bubble to the left */
+  border-bottom-left-radius: 0; /* Customizes border radius */
+}
+
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #FFF;
+  border-top: 1px solid #ccc;
+}
+
+.message-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.send-btn {
+  background-color: #075E54;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.emoji-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.emoji-picker {
+  position: absolute;
+  bottom: 60px;
+  left: 10px;
+}
+
+/* Additional styling to ensure layout works with floats */
+.my-message {
+  margin-left: auto;
+}
+
+.their-message {
+  margin-right: auto;
 }
