@@ -28,6 +28,7 @@
 .dp {
   display: flex;
   padding: 0.70rem;
+  cursor: pointer;
 }
 
 .dp div {
@@ -88,11 +89,13 @@
 .bi {
   color: lightgrey;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .bi-person-plus {
   position: relative;
   left: -1rem;
+  cursor: pointer;
 }
 
 .bi-box-arrow-right {
@@ -246,4 +249,346 @@
 
 .their-message {
   margin-right: auto;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #075e54;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.pym {
+  width: 24px;
+  height: 24px;
+  filter: invert(1); /* Makes the arrow white */
+}
+
+.access-info {
+  line-height: 0.75rem;
+}
+
+.img-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  top: 0.25rem;
+  margin-right: 1rem;
+  left: -0.40rem;
+}
+
+.profile-info {
+  display: flex;
+ 
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.profile-status {
+  font-size: 12px;
+  color: #cfd2cf;
+}
+
+.chat-messages {
+  padding: 10px;
+  flex: 1;
+  overflow-y: auto;
+  background-color: #ece5dd;
+}
+
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+}
+
+.user-profile-container {
+  padding: 20px;
+  text-align: center;
+  background-color: #000030;
+  height: 41rem;
+  color: white;
+}
+
+.user-profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.user-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.user-details p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.back-btns {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.back-icons {
+  width: 24px;
+  height: 24px;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.home-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 320px;
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-right: 2px solid #ddd;
+}
+
+.mynav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #075e54;
+  color: white;
+  padding: 10px 20px;
+}
+
+.app-name {
+  font-size: 22px;
+  margin: 0;
+}
+
+.nav-icons i {
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 10px;
+  border-radius: 8px;
+  
+}
+
+.text-muted {
+  color:#000030;
+  font-weight: 500;
+}
+.friend-item:hover {
+  background-color: #f5f5f5;
+}
+
+.friend-avatar {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.friend-info h6 {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.friend-info small {
+  color: #777;
+}
+
+.no-friends-message {
+  color: #888;
+  font-size: 16px;
+}
+
+/* Chat Area */
+.chat-container {
+  background-color: #fff;
+  display: flex;
+}
+
+.signout-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #075e54;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.signout-box {
+  display: flex;
+  align-items: center;
+}
+
+.signout-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.signout-info h6 {
+  margin: 0;
+  color: white;
+}
+
+.chat-messages {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.chat-messages::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+
+.signout-button {
+  cursor: pointer;
+  margin-left: 10px;
+} 
+
+
+.chat-messages>.starting{
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  top: 12rem;
+}
+
+.starting > img {
+  width: 15%;
+}
+/* For large screens, the sidebar is visible and chat is inline */
+@media screen and (min-width: 768px) {
+  .home-container {
+    display: flex;
+  }
+  .sidebar {
+    width: 320px;
+  }
+  .chat-container {
+    flex: 1;
+  }
+
+  /* Global Styles */
+}
+/* For small screens, the chat interface is hidden and redirected on profile click */
+@media screen and (max-width: 768px) {
+  .home-container {
+    display: block;
+    border: none;
+  }
+  .sidebar {
+    width: 100%;
+    border: none;
+  }
+  .signout-container {
+    position: fixed;
+    bottom: 10px;
+    left: 5px;
+    background-color: #075e54;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .signout-box {
+    display: flex;
+    align-items: center;
+  }
+  
+  .signout-avatar {
+    width: 40px;
+    height: 40px;
+    border: solid 3px #000030;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .signout-info h6 {
+    margin: 0;
+    color: white;
+  }
+  .chat-messages {
+    display: none;
+  }
+  .signout-button {
+    position: relative;
+    left:20rem;
+  }
+  .chat-container {
+    background-color: #f1f1f1;
+    display: block;
+    border: none;
+  }
+  .sidebar {
+    border: none;
+  }
+
+  .home-container {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .home-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+  
 }

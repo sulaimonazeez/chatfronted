@@ -5,67 +5,104 @@ import Chat from "./chat.jsx";
 import Search from "./search.jsx";
 import Charts from "./charts.jsx";
 import SignOut from "./signout.jsx";
-import AuthProvider from "./AuthProvider.jsx";
+import AuthContext from "./AuthProvider.jsx";
 import axios from "axios";
+//import Picker from "emoji-picker-react";
+import MessageIcon from "../message.svg";
 
-const Home = () =>{
+const Home = () => {
   const navigate = useNavigate();
-  const [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null);
-  const { user, logoutUser, myprofile } = useContext(AuthProvider);
-  const [result, setResult] = useState([] || false)
-  const UserLogout = () =>{
+  const { authTokens, logoutUser, myprofile } = useContext(AuthContext);
+  const [friendsList, setFriendsList] = useState([]);
+  const [isMobile, setIsMobile] = useState();
+
+  // Logout handler
+  const handleLogout = () => {
     logoutUser();
-  }
-  const userAdd = () =>{
-    navigate("/add");
-  }
-  
-  const Friends = useCallback(async () => {
+  };
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 768); // Set 768px as the breakpoint
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Fetch friends from the API
+  const fetchFriends = useCallback(async () => {
     try {
       const accessToken = authTokens ? authTokens.access : null;
-      const response = await axios.get('http://127.0.0.1:8000/friends/', {
-                  headers: {
-                      Authorization: `Bearer ${accessToken}`  // Add token to the Authorization header
-                  }
-              });
-      
+      if (!accessToken) {
+        console.log("No access token found.");
+        return;
+      }
+
+      const response = await axios.get("http://127.0.0.1:8000/friends/", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
       if (response.status === 200) {
-        //everything was good -- smile
-        if (response.data !== result) {
-          setResult(response.data);
-        }
-        
+        setFriendsList(response.data);
       } else {
-        //something went wrong maybe not found any profile or user did not enter a valid data -- let log it out
-        console.log("Something went wrong");
-        alert("error kccure");
+        console.error("Failed to fetch friends:", response.statusText);
       }
     } catch (err) {
-      //something terrible want wrong maybe it js internet connnect error let log it out
-      console.log(err);
-      alert("Bad Error unable to make a connection.....");
+      console.error("Error fetching friends:", err);
     }
-  }, [authTokens, setResult])
-  useEffect(() =>{
-    if (!authTokens) {
-      navigate("/login");
+  }, [authTokens]);
+
+  // Fetch recipient profile details
+  
+
+  
+  
+  useEffect(() => {
+    if (authTokens) {
+      fetchFriends();
     }
-    Friends();
-  }, [authTokens, navigate, Friends])
-  if (authTokens) {
-   return (
-    <div className="chat-group">
-      <Chat moveTo={ userAdd } />
-      <Search />
-      {result ? result.map((data, indx) =>{
-        return <Charts username={data.friend["username"]} id={data.friend["id"]} />
-      }): <p>No Friend</p>}
-      <SignOut logout={ UserLogout } user={myprofile}/>
+  }, [authTokens, fetchFriends]);
+
+  
+
+  return (
+    <div className="home-container">
+      {/* Sidebar */}
+      <div className="sidebar">
+        <Chat moveTo={() => navigate("/add")} />
+        <Search />
+        <div className="friends-list">
+          {friendsList.length > 0 ? (
+            friendsList.map((friendData) => (
+              <Charts
+                key={friendData.friend.id}
+                username={friendData.friend.username}
+                id={friendData.friend.id}
+                isMobile={isMobile}
+              />
+            ))
+          ) : (
+            <p className="no-friends-message">No friends found.</p>
+          )}
+        </div>
+      </div>
+
+      {/* Main Chat Area */}
+      <div className="chat-container">
+            <div className="chat-messages">
+              <div className="starting">
+              <img alt="Chat" src={ MessageIcon } />
+              <p>Start Chatting</p>
+              </div>
+             </div>
+        <SignOut logout={handleLogout} user={myprofile} />
+      </div>
     </div>
-   );
-  } else {
-    navigate("/login")
-  }
-}
+  );
+};
 
 export default Home;

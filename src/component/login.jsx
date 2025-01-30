@@ -7,7 +7,10 @@ const Login = () =>{
   const { loginUser } = useContext(AuthProvider);
   const [username, setUser] = useState('');
   const [password, setPassword] = useState('');
-  const [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null);
+  const authTokens = useState(() => 
+    localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
+)[0];
+
   const navigate = useNavigate();
   
   //handle submtion
@@ -23,27 +26,26 @@ const Login = () =>{
   
   
   return (
-   <div className="parent-form">
-    <div className="containers">
-        <div className="login-box">
-            <h2> Login </h2>
-            <form onSubmit={handleSubmit}>
-                <div className="input-group">
-                    <input onChange={(e)=>setUser(e.target.value)} type="text" id="email" name="username" placeholder="Username" required />
-                </div>
-                <div className="input-group">
-                    <input onChange={(e)=>setPassword(e.target.value)} type="password" id="pass" name="password" placeholder="Password" className="rounded-pill" required />
-                    <span id="toggler" className="toggle-password">👁️</span>
-                </div>
-                <button type="submit" className="btn btn-secondary"> LOGIN </button>
-            </form>
-            <div className="footer">
-                <a href="#" className="forgot-password">Forgot password?</a>
-                <p>Don't have an account? <a href="/accounts/create" className="register">Register!</a></p>
-            </div>
+    <div className="full-bg">
+    <div class="container-fluid">
+    <h3>Login Form</h3>
+    <form onSubmit={handleSubmit}>
+        <div class="form-group">
+            <label htmlFor="username">Username</label>
+            <input type="text" onChange={(e)=>setUser(e.target.value)} placeholder="Username" id="username" className="username"/>
         </div>
-    </div>
-   </div>
+        <div class="form-group">
+            <label htmlFor="password">Password</label>
+            <input placeholder="Password" onChange={(e)=>setPassword(e.target.value)} type="password" id="password" className="password" />
+        </div>
+        <div class="form-group">
+            <button type="submit" className="mybtn">Login</button>
+            <p class="option">Dont have an account? <a href="/create">SignUp</a></p>
+        </div>
+
+    </form>
+</div>
+</div>
   )
 }
 

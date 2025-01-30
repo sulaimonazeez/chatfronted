@@ -6,7 +6,10 @@ import { useNavigate } from "react-router-dom";
 const Looker = () =>{
   const [query, setQuery] = useState("");
   const [result, setResult] = useState(false);
-  const [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null);
+  const authTokens = useState(() => 
+    localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
+)[0];
+
   const navigate = useNavigate();
   
   const handleSearch = async (q) =>{

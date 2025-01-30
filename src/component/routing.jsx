@@ -6,6 +6,7 @@ import Home from "./home.jsx";
 import React from "react";
 import AddUsers from "./addUser.jsx";
 import ChatInterface from "./StartChart.jsx";
+import ViewProfile from "./viewprofie.jsx";
 //import HomePage from "./pages/HomePage";
 //import PrivateRoute from "./utils/PrivateRoute";
 
@@ -19,6 +20,7 @@ function Routing() {
                     <Route path="/" element={<Home />} />
                    <Route path="/add" element={<AddUsers />} />
                    <Route path="/chat/:id" element={<ChatInterface />} />
+                   <Route path="/profile/:id" element={<ViewProfile />} />
                 </Routes>
             </AuthProvider>
         </Router>

@@ -1,25 +1,34 @@
 import React from "react";
 import "../App.css";
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useNavigate } from "react-router-dom";
 
-const Charts = ({ username, id }) => {
+
+const Charts = ({ username, id, isMobile }) => {
   const navigate = useNavigate();
-  
-  const View = () =>{
-    navigate(`/chat/${id}`);
-  }
+  //const {myid, setId} = useContext(AuthContext);
+  const handleClick = () => {
+    if (isMobile) {
+      navigate(`/chat/${id}`); // Redirect to chat page on mobile
+    } else {
+      // On desktop, just render the chat interface inline (this is handled in Home component)
+      navigate(`/chat/${id}`); 
+
+    }
+  };
+
   return (
-    <div className="dp" onClick={View}>
-      <img src="https://avatar.iran.liara.run/public" className="img-profile" width="50" height="50"/>
-      <div>
-        <h6 style={{color:'lightgrey'}} className=''>{username}</h6>
-        <small className="text-secondary">Click here to start chat</small>
+    <div className="friend-item" onClick={handleClick}>
+      <img
+        src="https://avatar.iran.liara.run/public"
+        className="friend-avatar"
+        alt="profile"
+      />
+      <div className="friend-info">
+        <h6>{username}</h6>
+        <small className="text-muted">Click to start chat</small>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Charts
+export default Charts;
