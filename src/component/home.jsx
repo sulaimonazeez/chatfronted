@@ -40,7 +40,7 @@ const Home = () => {
         return;
       }
 
-      const response = await axios.get("http://127.0.0.1:8000/friends/", {
+      const response = await axios.get("https://chatits.pythonanywhere.com/friends/", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -92,7 +92,7 @@ const Home = () => {
       </div>
 
       {/* Main Chat Area */}
-      <div className="chat-container">
+      <div className="chat-container chatting">
             <div className="chat-messages">
               <div className="starting">
               <img alt="Chat" src={ MessageIcon } />

@@ -10,29 +10,35 @@ const AccountCreate = () => {
   const [last_name, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [error, createError] = useState('');
+  const [loading, setLoading] = useState(false); // New state for loading
   const navigate = useNavigate();
   
-  const [authTokens] = useState(() => localStorage.getItem("authTokens") ? JSON.parse(localStorage.getItem("authTokens")) : null );
-  
+  const [authTokens] = useState(() => 
+    localStorage.getItem("authTokens") ? JSON.parse(localStorage.getItem("authTokens")) : null
+  );
+
   // Check if user is already authenticated
   const AccountSubmit = async () => {
+    setLoading(true); // Start loading
     try {
-      const response = await axios.post("http://127.0.0.1:8000/register/", { username, email, first_name, last_name, password });
+      const response = await axios.post("https://chatits.pythonanywhere.com/register/", { 
+        username, email, first_name, last_name, password 
+      });
+
       if (response.status === 200 || response.status === 201) {
-        // Account created successfully, redirect to login page
-        navigate('/login');
+        navigate('/login'); // Redirect on success
       } else {
-        // Something went wrong, unable to create account
         createError("Unable to create account");
       }
     } catch (error) {
-      createError(`Unable to create account: ${error}`);
+      createError(`Unable to create account: ${error.response?.data?.detail || error.message}`);
     }
+    setLoading(false); // Stop loading
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    AccountSubmit();
+    if (!loading) AccountSubmit();
   };
 
   useEffect(() => {
@@ -56,6 +62,7 @@ const AccountCreate = () => {
               className="username" 
               name="username"
               autoComplete="off" 
+              required
             />
           </div>
           <div className="form-group">
@@ -68,6 +75,7 @@ const AccountCreate = () => {
               className="email" 
               name="email"
               autoComplete="off" 
+              required
             />
           </div>
           <div className="form-group">
@@ -80,6 +88,7 @@ const AccountCreate = () => {
               className="first_name" 
               name="first_name"
               autoComplete="off" 
+              required
             />
           </div>
           <div className="form-group">
@@ -92,6 +101,7 @@ const AccountCreate = () => {
               className="last_name" 
               name="last_name"
               autoComplete="off" 
+              required
             />
           </div>
           <div className="form-group">
@@ -104,10 +114,17 @@ const AccountCreate = () => {
               className="password" 
               name="password"
               autoComplete="new-password" 
+              required
             />
           </div>
           <div className="form-group">
-            <button type="submit" className="mybtn">Sign Up</button>
+            <button type="submit" className="mybtn" disabled={loading}>
+              {loading ? (
+                <span className="spinner"></span> // Spinner when loading
+              ) : (
+                "Sign Up"
+              )}
+            </button>
             <p className="option">Already have an account? <a href="/login">Login</a></p>
             <p style={{ color: "red"}}>{ error }</p>
           </div>

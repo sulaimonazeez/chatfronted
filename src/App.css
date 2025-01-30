@@ -564,18 +564,14 @@ body {
     margin: 0;
     color: white;
   }
-  .chat-messages {
+  .starting {
     display: none;
   }
   .signout-button {
     position: relative;
-    left:20rem;
+    left:17rem;
   }
-  .chat-container {
-    background-color: #f1f1f1;
-    display: block;
-    border: none;
-  }
+ 
   .sidebar {
     border: none;
   }
@@ -586,9 +582,13 @@ body {
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none; /* Firefox */
   }
-  
+  .chatting {
+    border: none;
+  }
   .home-container::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Opera */
   }
-  
+  .chat-messages {
+    background-color: #f5f5f5;
+  }
 }
