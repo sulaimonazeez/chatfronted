@@ -15,7 +15,7 @@ const Looker = () =>{
   const handleSearch = async (q) =>{
     try {
       const accessToken = authTokens ? authTokens.access : null;
-      let response = await axios.get('https://chatits.pythonanywhere.com/search/', {
+      let response = await axios.get('http://127.0.0.1:8000/search/', {
                   headers: {
                       Authorization: `Bearer ${accessToken}`  // Add token to the Authorization header
                   },
@@ -49,7 +49,7 @@ const Looker = () =>{
   const LetChat = async (id) =>{
     try {
       const accessToken = authTokens ? authTokens.access : null;
-      let response = await axios.post('https://chatits.pythonanywhere.com/friends/', {"id":id}, {
+      let response = await axios.post('http://127.0.0.1:8000/friends/', {"id":id}, {
                   headers: {
                       Authorization: `Bearer ${accessToken}`  // Add token to the Authorization header
                   },

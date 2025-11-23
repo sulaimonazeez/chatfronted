@@ -40,7 +40,7 @@ const Home = () => {
         return;
       }
 
-      const response = await axios.get("https://chatits.pythonanywhere.com/friends/", {
+      const response = await axios.get("http://127.0.0.1:8000/friends/", {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

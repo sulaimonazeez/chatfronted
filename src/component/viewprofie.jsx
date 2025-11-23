@@ -16,7 +16,7 @@ const ViewProfile = () => {
   const fetchUserDetails = useCallback(async () => {
     try {
       const accessToken = authTokens ? authTokens.access : null;
-      const response = await axios.get(`https://chatits.pythonanywhere.com/users/${id}/`, {
+      const response = await axios.get(`http://127.0.0.1:8000/users/${id}/`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

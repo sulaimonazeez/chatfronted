@@ -26,7 +26,7 @@ const ChatInterface = () => {
   const fetchRecipientProfile = useCallback(async () => {
     try {
       const accessToken = authTokens ? authTokens.access : null;
-      const response = await axios.get(`https://chatits.pythonanywhere.com/users/${id}/`, {
+      const response = await axios.get(`http://127.0.0.1:8000/users/${id}/`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
@@ -61,7 +61,7 @@ const ChatInterface = () => {
     try {
       const accessToken = authTokens ? authTokens.access : null;
       const response = await axios.post(
-        `https://chatits.pythonanywhere.com/messages/${id}/`,
+        `http://127.0.0.1:8000/messages/${id}/`,
         { message: msg },
         {
           headers: {
@@ -83,7 +83,7 @@ const ChatInterface = () => {
   const updateMessage = useCallback(async () => {
     try {
       const accessToken = authTokens ? authTokens.access : null;
-      const response = await axios.get(`https://chatits.pythonanywhere.com/messages/${id}/`, {
+      const response = await axios.get(`http://127.0.0.1:8000/messages/${id}/`, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

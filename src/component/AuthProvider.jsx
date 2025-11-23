@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     // Login function
     const loginUser = async (username, password) => {
         try {
-            const response = await axios.post("https://chatits.pythonanywhere.com/login/", { username, password });
+            const response = await axios.post("http://127.0.0.1:8000/login/", { username, password });
             if (response.status === 200) {
                 const tokens = response.data;
                 setAuthTokens(tokens);
