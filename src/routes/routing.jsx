@@ -1,14 +1,15 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AccountCreate from "./AccountCreate.jsx";
-import { AuthProvider } from "./AuthProvider.jsx";
-import Login from "./login.jsx";
-import Home from "./home.jsx";
+import AccountCreate from ".././pages/AccountCreate.jsx";
+import { AuthProvider } from ".././auth/AuthProvider.jsx";
+import Login from ".././pages/login.jsx";
+import Home from ".././pages/home.jsx";
 import React from "react";
-import AddUsers from "./addUser.jsx";
-import ChatInterface from "./StartChart.jsx";
-import ViewProfile from "./viewprofie.jsx";
+import AddUsers from ".././pages/addUser.jsx";
+import ChatInterface from ".././pages/StartChart.jsx";
+import ViewProfile from ".././pages/viewprofie.jsx";
 //import HomePage from "./pages/HomePage";
 //import PrivateRoute from "./utils/PrivateRoute";
+//import ChatApp from ".././pages/landing.jsx";
 
 function Routing() {
     return (

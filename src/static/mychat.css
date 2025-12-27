@@ -1,0 +1,210 @@
+/* Global dark theme */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a23;
+  color: #fff;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Scrollbar for friends list */
+.friends-list {
+  overflow-y: auto;
+  height: calc(100% - 200px);
+}
+
+.friends-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.friends-list::-webkit-scrollbar-thumb {
+  background: #0ff;
+  border-radius: 4px;
+}
+
+.friends-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 25%;
+  background: linear-gradient(to bottom, #0a0a23, #000020);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  animation: sidebar-glow 3s infinite alternate;
+}
+
+@keyframes sidebar-glow {
+  0% { box-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+  50% { box-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
+  100% { box-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+}
+
+/* Chat container */
+.chat-container {
+  flex: 1;
+  background: #010118;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.starting {
+  border: 2px dashed #0ff;
+  padding: 50px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: glow-border 2s infinite alternate;
+}
+
+.starting img {
+  width: 120px;
+  opacity: 0.5;
+  animation: pulse 2s infinite;
+}
+
+.starting p {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #0ff;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+/* Friends item */
+.friend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.friend-item:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #0ff, 0 0 25px #0ff;
+}
+
+.friend-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #0ff;
+  box-shadow: 0 0 10px #0ff;
+}
+
+/* Chat top bar */
+.mynav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.mynav .nav-icons i {
+  margin-left: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mynav .nav-icons i:hover {
+  transform: scale(1.3);
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+}
+
+/* Search bar */
+.search-bar {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 50px;
+  border: none;
+  background-color: #000030;
+  color: #0ff;
+  box-shadow: 0 0 10px #0ff;
+  transition: all 0.3s ease;
+}
+
+.search-bar::placeholder {
+  color: rgba(0, 255, 255, 0.5);
+}
+
+.search-bar:focus {
+  outline: none;
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+}
+
+/* SignOut */
+.signout-container {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.signout-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #000020;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #0ff;
+  transition: all 0.3s ease;
+}
+
+.signout-box:hover {
+  box-shadow: 0 0 30px #0ff, 0 0 50px #0ff;
+  transform: scale(1.05);
+}
+
+.signout-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #0ff;
+  box-shadow: 0 0 15px #0ff;
+}
+
+.signout-button {
+  cursor: pointer;
+  color: #0ff;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.signout-button:hover {
+  transform: scale(1.3);
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes glow-border {
+  0% { box-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+  50% { box-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
+  100% { box-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .sidebar { width: 100%; height: 40%; }
+  .chat-container { height: 60%; }
+}

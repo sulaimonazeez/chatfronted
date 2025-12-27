@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     // Login function
     const loginUser = async (username, password) => {
         try {
-            const response = await axios.post("http://127.0.0.1:8000/login/", { username, password });
+            const response = await axios.post("https://chatits.pythonanywhere.com/login/", { username, password });
             if (response.status === 200) {
                 const tokens = response.data;
                 setAuthTokens(tokens);
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
             }
         } catch (error) {
             console.error("Login error:", error);
-            setError(error.response?.data?.error || "An error occurred. Check your internet connection.");
+            setError(error.response?.data?.error || error.message || "An error occurred. Check your internet connection.");
         }
     };
 

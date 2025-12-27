@@ -1,0 +1,156 @@
+/* Card Styling */
+.chat-card {
+  transition: all 0.2s ease;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.chat-card:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* The "Active" state from your image (Darker gray box) */
+.chat-card.active {
+  background-color: #2c2d33 !important;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.avatar-container {
+  flex-shrink: 0;
+}
+
+.friend-avatar-img {
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.bg-primary-custom {
+  background-color: #3b82f6;
+  font-weight: 400;
+  padding: 4px 8px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Logo Styling */
+.logo-icon {
+  background: linear-gradient(135deg, #505cf4 0%, #3b82f6 100%);
+  color: white;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Glass Action Buttons */
+.btn-icon-glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a1a1a1;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.btn-icon-glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-icon-glass i {
+  font-size: 1.1rem;
+}
+
+.chat-nav-header h5 {
+  letter-spacing: -0.5px;
+}
+
+.search-wrapper {
+  width: 100%;
+}
+
+.search-input {
+  background-color: #25262b; /* The exact color from the UI image */
+  color: white;
+  border: 1px solid transparent;
+  padding: 10px 12px 10px 40px; /* Space on left for the icon */
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-input::placeholder {
+  color: #5f6064;
+  font-weight: 400;
+}
+
+.search-input:focus {
+  background-color: #2c2d33;
+  border-color: rgba(59, 130, 246, 0.5); /* Subtle blue glow on focus */
+  box-shadow: none;
+}
+
+.search-wrapper i {
+  font-size: 0.85rem;
+  pointer-events: none; /* Icon won't block typing clicks */
+}
+
+
+.profile-section.full {
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.profile-card {
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.profile-card:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.status-dot-online {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background-color: #22c55e;
+  border: 2px solid #1a1b1e;
+  border-radius: 50%;
+}
+
+.logout-icon-btn {
+  background: none;
+  border: none;
+  color: #ef4444; /* Soft red for logout */
+  font-size: 1.2rem;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.logout-icon-btn:hover {
+  opacity: 0.7;
+}
+
+/* For the tiny icon sidebar */
+.profile-section.minimalist {
+  padding: 20px 0;
+}

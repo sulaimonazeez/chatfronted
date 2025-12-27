@@ -1,0 +1,75 @@
+/* Custom Colors from Image */
+:root {
+  --bg-dark: #121214;
+  --panel-dark: #1a1b1e;
+  --chat-main: #16171a;
+  --input-bg: #25262b;
+  --bubble-sent: #505cf4;
+  --border-color: rgba(255, 255, 255, 0.05);
+}
+
+.bg-black-base { background-color: #0c0d0f; }
+
+.main-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  height: 90vh;
+  background-color: var(--bg-dark);
+}
+
+/* Glass Borders */
+.border-glass { border: 1px solid var(--border-color); }
+.border-end-glass { border-right: 1px solid var(--border-color); }
+.border-bottom-glass { border-bottom: 1px solid var(--border-color); }
+
+/* Panels */
+.bg-side-nav { background-color: #121214; }
+.bg-panel { background-color: var(--panel-dark); }
+.bg-chat-main { background-color: var(--chat-main); }
+
+/* Chat Elements */
+.chat-card.active {
+  background-color: #2c2d33;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.search-box, .input-pill {
+  background-color: var(--input-bg);
+}
+
+.msg-bubble-sent {
+  background: linear-gradient(135deg, #505cf4 0%, #3b82f6 100%);
+  color: white;
+  max-width: 80%;
+}
+
+.avatar-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.bg-primary-custom { background-color: #3b82f6; }
+
+/* Action Icons in Details */
+.action-icon {
+  width: 45px;
+  height: 45px;
+  background: var(--input-bg);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a1a1a1;
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .main-wrapper {
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+
+.x-small { font-size: 0.7rem; }

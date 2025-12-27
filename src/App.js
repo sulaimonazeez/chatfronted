@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import Routing from "./component/routing.jsx";
+import Routing from "./routes/routing.jsx";
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React from "react";
