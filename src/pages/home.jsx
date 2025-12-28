@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import AuthContext from ".././auth/AuthProvider.jsx";
 import axios from "axios";
-
-// Your Components
 import Chat from "./chat.jsx";
 import Search from "./search.jsx";
-import Charts from "./charts.jsx"; // Assuming this is the Sidebar Chat Item
+import Charts from "./charts.jsx";
 import SignOut from ".././auth/signout.jsx";
 import MessageIcon from ".././assets/message.svg";
 
@@ -18,7 +16,7 @@ const Home = () => {
   const navigate = useNavigate();
   const { authTokens, logoutUser, myprofile } = useContext(AuthContext);
   const [friendsList, setFriendsList] = useState([]);
-  const [selectedFriend, setSelectedFriend] = useState(null); // Track active chat
+  const [selectedFriend, setSelectedFriend] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -59,8 +57,6 @@ const Home = () => {
                <SignOut logout={logoutUser} user={myprofile} minimalist={true} />
             </div>
           </Col>
-
-          {/* 2. FRIENDS LIST (Hidden on mobile if a chat is selected) */}
           <Col xs={12} md={4} lg={3} className={`${isMobile && selectedFriend ? 'd-none' : 'd-flex'} flex-column bg-panel border-end-glass`}>
             <div className="p-3">
               <Chat moveTo={() => navigate("/add")} />
@@ -87,15 +83,12 @@ const Home = () => {
               )}
             </div>
           </Col>
-
-          {/* 3. MAIN CHAT AREA (Hidden on mobile if no chat selected) */}
           <Col 
             xs={12} md={8} lg={5} 
             className={`${isMobile && !selectedFriend ? 'd-none' : 'd-flex'} flex-column bg-chat-main`}
           >
             {selectedFriend ? (
               <>
-                {/* Header with Back Button for Mobile */}
                 <header className="p-3 border-bottom-glass d-flex align-items-center justify-content-between">
                   <div className="d-flex align-items-center">
                     {isMobile && (
@@ -109,10 +102,7 @@ const Home = () => {
                     </div>
                   </div>
                 </header>
-                
-                {/* Actual Chat Messages Component */}
                 <div className="flex-grow-1 overflow-auto p-3">
-                   {/* Pass selectedFriend.id to your actual message component */}
                    <p className="text-center text-muted">Conversation with {selectedFriend.username}</p>
                 </div>
               </>
@@ -123,11 +113,8 @@ const Home = () => {
               </div>
             )}
           </Col>
-
-          {/* 4. DETAILS PANEL (Desktop Only) */}
           <Col lg={3} className="d-none d-xl-flex flex-column bg-panel border-start-glass p-4 text-white">
              <h6 className="fw-bold">Chat Details</h6>
-             {/* Add content here matching your image */}
           </Col>
 
         </Row>

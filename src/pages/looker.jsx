@@ -60,7 +60,6 @@ const Looker = () => {
   return (
     <div className="looker-universe">
 
-      {/* SEARCH */}
       <motion.form
         onSubmit={handleSearch}
         className="search-box"
@@ -76,7 +75,6 @@ const Looker = () => {
         <button type="submit">Search</button>
       </motion.form>
 
-      {/* RESULTS */}
       <div className="results-zone">
         {loading && <div className="loader-glow" />}
 
@@ -109,7 +107,6 @@ const Looker = () => {
         )}
       </div>
 
-      {/* FOOTER */}
       <div className="share-zone">
         <p>Share your User ID</p>
         <div className="socials">

@@ -22,7 +22,6 @@ const Charts = ({ username, id, isMobile, onSelect, active }) => {
       className={`chat-card p-3 rounded-4 mb-2 d-flex align-items-center cursor-pointer ${active ? 'active' : ''}`} 
       onClick={handleClick}
     >
-      {/* 3D-Style Avatar Container */}
       <div className="avatar-container me-3 position-relative">
         <img
           src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${username}`}
@@ -30,7 +29,6 @@ const Charts = ({ username, id, isMobile, onSelect, active }) => {
           alt="profile"
           style={{ width: '45px', height: '45px', backgroundColor: '#e9ecef' }}
         />
-        {/* Online Status Dot */}
         <span className="position-absolute bottom-0 end-0 p-1 bg-success border border-2 border-dark rounded-circle"></span>
       </div>
 
@@ -41,7 +39,6 @@ const Charts = ({ username, id, isMobile, onSelect, active }) => {
         </div>
         <div className="d-flex justify-content-between align-items-center">
           <p className="mb-0 x-small text-secondary text-truncate">Click to start chatting...</p>
-          {/* Unread Badge Example */}
           <span className="badge rounded-pill bg-primary-custom x-small">2</span>
         </div>
       </div>

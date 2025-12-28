@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+ChatIt – Real-Time Messaging Application
+ChatIt is a modern, real-time messaging application built with React on the frontend and a Django REST API backend.
+It focuses on clean UI, smooth user experience, and scalable architecture.
+🚀 Features
+🔐 JWT Authentication
+👥 Friends System
+🔍 Search Users by Username / ID
+💬 1-on-1 Chat Messaging
+😊 Emoji Support
+📱 Mobile-Responsive UI
+⚡ Auto Message Polling (WebSocket-ready)
+🎨 Modern UI with Glassmorphism
+🔒 Secure API requests with Bearer Tokens
+🛠 Tech Stack
+Frontend
+React
+React Router
+Axios
+Bootstrap / Custom CSS
+Emoji Picker
+Context API
+Backend
+Django
+Django REST Framework
+JWT Authentication
+PostgreSQL / SQLite
+PythonAnywhere (Hosting)
+📂 Project Structure
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+src/
+├── auth/
+│   ├── AuthProvider.jsx
+│   ├── SignOut.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Charts.jsx
+│   ├── Chat.jsx
+│   ├── Search.jsx
+│   ├── Looker.jsx
+│
+├── assets/
+│   ├── message.svg
+│
+├── styles/
+│   ├── ExactUI.css
+│
+├── App.jsx
+├── index.jsx
 
-## Available Scripts
 
-In the project directory, you can run:
+Authentication Flow
+User logs in
+Backend returns JWT access & refresh tokens
+Tokens stored in localStorage
+Axios attaches token via
+Authorization: Bearer <access_token>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+User Search
+Users can search for friends using:
+Username
+User ID
+If found, they can instantly start a chat.
+💬 Messaging System
+Messages are fetched using polling (every 3 seconds)
+Messages are grouped into:
+Mine
+Theirs
+Emojis supported
+Designed for easy WebSocket upgrade
+🎨 UI Design Philosophy
+Glassmorphism panels
+Centered layout
+Dark theme
+Smooth transitions
+Mobile-first responsiveness
+⚙️ Installation & Setup
+frontend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+git clone https://github.com/sulaimonazeez/chatfrontend.git
+cd chatfrontend
+npm install
+npm start
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+git clone https://github.com/sulaimonazeez/chatbackend.git
+cd chatbackend
+pip install -r requirements.txt
+python manage.py runserver
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+API Endpoints (Sample)
+Method
+Endpoint
+Description
+POST
+/auth/login/
+Login
+GET
+/friends/
+Fetch friends
+GET
+/search/
+Search users
+GET
+/messages/<id>/
+Fetch messages
+POST
+/messages/<id>/
+Send message
+🔮 Future Improvements
+✅ WebSocket (Django Channels)
+✅ Message seen/delivered status
+✅ Group chats
+✅ Voice notes
+✅ File sharing
+✅ Push notifications
+🧠 Clean Code Principles Used
+Separation of concerns
+Reusable components
+Context for global state
+Custom hooks ready
+No logic inside JSX
+Scalable folder structure
+👨‍💻 Author
+Azeez Sulaimon
+Full-Stack Developer
+Focused on scalable systems, clean architecture, and real-world products.
+⭐ Show Some Love
+If you like this project:
+⭐ Star the repo
+🐛 Report issues
+🤝 Contribute improvements
+If you want, next I can:
+Write API documentation
+Design WebSocket architecture
+Improve message performance
+Create production deployment guide
