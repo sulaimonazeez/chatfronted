@@ -1,4 +1,4 @@
-/* Card Styling */
+
 .chat-card {
   transition: all 0.2s ease;
   background: transparent;
@@ -153,4 +153,13 @@
 /* For the tiny icon sidebar */
 .profile-section.minimalist {
   padding: 20px 0;
+}
+
+.main-wrapper {
+  width: 100%;
+  max-width: 1400px;   /* desktop width */
+  height: 100%;
+  max-height: 90vh;    /* breathing room */
+  display: flex;
+  background: #0b0f1a;
 }

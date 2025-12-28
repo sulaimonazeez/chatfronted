@@ -46,12 +46,11 @@ const Home = () => {
   }, [authTokens, fetchFriends]);
 
   return (
-    <Container fluid className="vh-100 d-flex align-items-center justify-content-center bg-black-base p-0 p-md-4">
+    <Container fluid className="vh-100 d-flex align-items-center justify-content-center bg-black-base p-0 bg-black m-0 w-100">
       <div className="main-wrapper rounded-5 overflow-hidden border-glass shadow-2xl">
-        <Row className="g-0 h-100">
+        <Row className="g-0 h-100 w-100">
           
-          {/* 1. MINI PERMANENT SIDEBAR (Icons Only) */}
-          <Col md={1} className="d-none d-lg-flex flex-column align-items-center py-4 bg-side-nav border-end-glass">
+          <Col md={1} className="d-none d-lg-flex flex-column align-items-center py-3 bg-side-nav border-end-glass">
             <div className="logo mb-5 text-white fw-bold">CH</div>
             <div className="nav-items d-flex flex-column gap-4 text-secondary">
                <i className="bi bi-chat-fill text-white fs-5"></i>
@@ -62,10 +61,7 @@ const Home = () => {
           </Col>
 
           {/* 2. FRIENDS LIST (Hidden on mobile if a chat is selected) */}
-          <Col 
-            xs={12} md={4} lg={3} 
-            className={`${isMobile && selectedFriend ? 'd-none' : 'd-flex'} flex-column bg-panel border-end-glass`}
-          >
+          <Col xs={12} md={4} lg={3} className={`${isMobile && selectedFriend ? 'd-none' : 'd-flex'} flex-column bg-panel border-end-glass`}>
             <div className="p-3">
               <Chat moveTo={() => navigate("/add")} />
               <Search />
